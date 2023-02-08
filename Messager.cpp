@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+п»ї//---------------------------------------------------------------------------
 //#define WINVER 0x0400
 //#define _WIN32_NT 0x0400
 #define MB_SERVICE_NOTIFICATION 0x00040000L
@@ -62,7 +62,7 @@ DWORD WINAPI ThreadProc(void *)
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR CmdLine, int)
 {
-	// Ищем сообщение в командной строке
+	// РС‰РµРј СЃРѕРѕР±С‰РµРЅРёРµ РІ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРµ
 	char *Start = strchr(CmdLine, '\"');
 	if (!Start)
 	{
@@ -78,7 +78,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR CmdLine, int)
 	*pos = 0;
 	
 	
-	// Проверяем, есть ли заголовок
+	// РџСЂРѕРІРµСЂСЏРµРј, РµСЃС‚СЊ Р»Рё Р·Р°РіРѕР»РѕРІРѕРє
 	char *TtlStart = 0;
 	if (*(++pos))
 	{
@@ -95,7 +95,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR CmdLine, int)
 		} // if (TtlStart)
 	} // if (*(++pos))
 
-	// Проверяем наличие значка в командной строке
+	// РџСЂРѕРІРµСЂСЏРµРј РЅР°Р»РёС‡РёРµ Р·РЅР°С‡РєР° РІ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРµ
 	int Icon = -1;
 	if (*(++pos))
 	{
