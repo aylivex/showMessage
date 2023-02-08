@@ -1,0 +1,130 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MESSAGER            ICON    DISCARDABLE     "Messager.ico"
+IDI_ALARM               ICON    DISCARDABLE     "Alarm.ico"
+IDI_MOVIE               ICON    DISCARDABLE     "Movie.ico"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 3,0,3,6
+ PRODUCTVERSION 3,0,3,6
+ FILEFLAGSMASK 0x0L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041904e3"
+        BEGIN
+            VALUE "Comments", "Командная строка: Messager ""Сообщение"" [""Заголовок""] [НомерЗначка].\0"
+            VALUE "CompanyName", "iaSoft (Иванов Алексей)\0"
+            VALUE "FileDescription", "Программа отображения сообщений\0"
+            VALUE "FileVersion", "3.00.3.6\0"
+            VALUE "InternalName", "Messager\0"
+            VALUE "LegalCopyright", "© 2000-2001, iaSoft (Иванов Алексей)\0"
+            VALUE "OriginalFilename", "Messager.exe\0"
+            VALUE "ProductName", "Программа отображения сообщений\0"
+            VALUE "ProductVersion", "3.00\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x419, 1251
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ERR_FORMAT              "Неверная командная строка.\r\n\r\nФормат вызова: Messager ""Сообщение"" [""Заголовок""] [НомерЗначка]. Сообщение и Заголовок, если есть, должны быть обязательно заключены в кавычки; НомерЗначка --- число от нуля до пяти. Если не указан Заголовок, то используется заголовок ""Предупреждение""; если НомерЗначка не указан или превосходит пять, то используется значок с номером ноль."
+    IDS_TITLE               "Предупреждение"
+    IDS_ERRORTITLE          "Messager - Ошибка"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
