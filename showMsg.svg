@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1"
+     width="16" height="16"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <ellipse cx="8" cy="8" rx="7.5" ry="7.5"
+    fill="#772288" stroke="black" stroke-width="1"/>
+
+    <text
+            x="8"
+            y="13"
+            font-family="Times New Roman"
+            font-style="italic"
+            font-weight="bold"
+            font-size="16"
+            fill="white"
+            text-anchor="middle"
+    >i</text>
+
+
+</svg>
