@@ -1,18 +1,24 @@
-﻿//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 //#define WINVER 0x0400
 //#define _WIN32_NT 0x0400
 #define MB_SERVICE_NOTIFICATION 0x00040000L
 
 #include <windows.h>
+#include <commctrl.h>
 #include <stdio.h>
 #include <string.h>
 #include "resource.h"
 #include "Sound.h"
 
+// Взято из нового Platform SDK
+#define ICC_STANDARD_CLASSES   0x00004000
+
 //---------------------------------------------------------------------------
-#define MAX_TEXT  1024
-#define MAX_TITLE   32
-#define MAX_ICON     5
+#define MAX_TEXT      1024
+#define MAX_TITLE       32
+#define MAX_ICON         5
+
+#define QUIT_TIMEOUT  1000
 
 static int IconTable[] = { IDI_MESSAGER, IDI_ALARM, IDI_MOVIE };
 
@@ -28,7 +34,6 @@ static void __fastcall ErrorBox(void)
 static const    int  Sequence[] = { 200, 300, 400, 300, 700, 500 };
 static          int  pos        = 0;
 static volatile bool Terminate  = false;
-static volatile bool Terminated = false;
 
 DWORD WINAPI ThreadProc(void *)
 {
@@ -55,13 +60,16 @@ DWORD WINAPI ThreadProc(void *)
 			pos = 0;
 	} // while (!Terminate)
 	
-	Terminated = true;
-	
 	return 0;
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR CmdLine, int)
 {
+	INITCOMMONCONTROLSEX icc;
+	icc.dwSize = sizeof(icc);
+	icc.dwICC  = ICC_STANDARD_CLASSES;
+	InitCommonControlsEx(&icc);
+
 	// Ищем сообщение в командной строке
 	char *Start = strchr(CmdLine, '\"');
 	if (!Start)
@@ -102,14 +110,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR CmdLine, int)
 		if (!sscanf(pos, "%i", &Icon))
 			Icon = -1;
 	}
+
+	// Проверяем наличие параметра nosound
+	bool NoSound = strstr(_strlwr(pos), "nosound") != NULL;
 	
 	if (Icon > MAX_ICON || Icon < 0)
 		Icon = 0;
 		
-		
-	DWORD ThreadId;
-		
-	CreateThread(0, 0, ThreadProc, 0, 0, &ThreadId);
+
+	DWORD  ThreadId;
+	HANDLE hThread = NULL;
+
+	if (!NoSound)
+		hThread = CreateThread(0, 0, ThreadProc, 0, 0, &ThreadId);
 		
 		
 	MSGBOXPARAMS Info;
@@ -131,8 +144,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR CmdLine, int)
 		
 	Terminate = true;
 	
-	while (!Terminated)
-		;
+	if (hThread)
+	{
+		WaitForSingleObject(hThread, QUIT_TIMEOUT);
+		CloseHandle(hThread);
+	}
 		
 	return 0;
 }

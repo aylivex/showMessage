@@ -40,7 +40,7 @@ END
 
 3 TEXTINCLUDE DISCARDABLE 
 BEGIN
-    "\r\n"
+    "1 24 ""Messager.exe.manifest""\r\n"
     "\0"
 END
 
@@ -65,8 +65,8 @@ IDI_MOVIE               ICON    DISCARDABLE     "Movie.ico"
 //
 
 1 VERSIONINFO
- FILEVERSION 3,0,3,6
- PRODUCTVERSION 3,0,3,6
+ FILEVERSION 3,1,0,7
+ PRODUCTVERSION 3,1,0,7
  FILEFLAGSMASK 0x0L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -81,15 +81,15 @@ BEGIN
     BEGIN
         BLOCK "041904e3"
         BEGIN
-            VALUE "Comments", "Командная строка: Messager ""Сообщение"" [""Заголовок""] [НомерЗначка].\0"
+            VALUE "Comments", "Командная строка: Messager ""Сообщение"" [""Заголовок""] [НомерЗначка] [NoSound].\0"
             VALUE "CompanyName", "iaSoft (Иванов Алексей)\0"
             VALUE "FileDescription", "Программа отображения сообщений\0"
-            VALUE "FileVersion", "3.00.3.6\0"
+            VALUE "FileVersion", "3.10.0.7\0"
             VALUE "InternalName", "Messager\0"
-            VALUE "LegalCopyright", "© 2000-2001, iaSoft (Иванов Алексей)\0"
+            VALUE "LegalCopyright", "© 2000-2004, iaSoft (Иванов Алексей)\0"
             VALUE "OriginalFilename", "Messager.exe\0"
             VALUE "ProductName", "Программа отображения сообщений\0"
-            VALUE "ProductVersion", "3.00\0"
+            VALUE "ProductVersion", "3.10\0"
         END
     END
     BLOCK "VarFileInfo"
@@ -108,7 +108,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    ERR_FORMAT              "Неверная командная строка.\r\n\r\nФормат вызова: Messager ""Сообщение"" [""Заголовок""] [НомерЗначка]. Сообщение и Заголовок, если есть, должны быть обязательно заключены в кавычки; НомерЗначка --- число от нуля до пяти. Если не указан Заголовок, то используется заголовок ""Предупреждение""; если НомерЗначка не указан или превосходит пять, то используется значок с номером ноль."
+    ERR_FORMAT              "Неверная командная строка.\r\n\r\nФормат вызова: Messager ""Сообщение"" [""Заголовок""] [НомерЗначка] [NoSound].\r\n\r\nСообщение и Заголовок, если есть, должны быть обязательно заключены в кавычки. Если не указан Заголовок, то используется заголовок ""Предупреждение"".\r\nНомерЗначка --- число от нуля до пяти. Если НомерЗначка не указан или превосходит пять, то используется значок с номером ноль.\r\nЕсли указан параметр NoSound, то при выводе окна сообщения не будет воспроизводиться звук через встроенный динами компьютера."
     IDS_TITLE               "Предупреждение"
     IDS_ERRORTITLE          "Messager - Ошибка"
 END
@@ -123,7 +123,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-
+1 24 "Messager.exe.manifest"
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
